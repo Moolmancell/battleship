@@ -1,7 +1,15 @@
 import { Gameboard } from "./gameboard";
 
 export function Player(mode = "computer") {
-    const playerMode = mode;
+
+    let playerMode;
+
+    if (mode !== "computer" && mode !== "player") {
+        throw new Error("Unknown Mode");
+    } else {
+        playerMode = mode;
+    }
+
     let gameboard = Gameboard();
 
     return {gameboard, playerMode}
