@@ -1,15 +1,23 @@
-export function ships(length) {
-    const length = length;
-    let hitTimes = 0;
-    let isSunk = false;
+export function Ship(l) {
+    const length = l;
+    let hits = 0;
 
-    const hit = () => {
-        hitTimes=+1;
-    }
+    const gotHit = () => {
+        if (hits < length) hits++;
+    };
 
-    const hasSunk = () => {
-        if (hitTimes === length) isSunk = true;
-    }
+    const isSunk = () => hits >= length;
 
-    return {length, hitTimes, isSunk, hit, hasSunk}
+    return {
+        get length() {
+            return length;
+        },
+        get hits() {
+            return hits;
+        },
+        get isSunk() {
+            return isSunk();
+        },
+        gotHit
+    };
 }
