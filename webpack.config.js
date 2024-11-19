@@ -15,4 +15,12 @@ module.exports = {
         title: 'Battleship',
         }),
     ],
+    module: {
+        rules: [
+          {
+            test: /\.css$/i,
+            use: ["style-loader", "css-loader"],
+          },
+        ],
+      },
 };
