@@ -1,4 +1,57 @@
 body {
     background-color: rgb(21, 21, 80);
-    height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+}
+
+#gameboard-player-1 {
+    width: 300px; /* Optional: define container width */
+    height: 300px; /* Optional: define container height */
+    margin: auto;
+}
+
+#gameboard-player-1 div {
+    background-color: rgb(255, 136, 136);
+    border-radius: 5px;
+    filter: drop-shadow(0px 4px rgb(112, 41, 41));
+}
+
+#gameboard-player-2 {
+    width: 300px; /* Optional: define container width */
+    height: 300px; /* Optional: define container height */
+    margin: auto;
+}
+
+#gameboard-player-2 div {
+    background-color: rgb(136, 186, 255);
+    border-radius: 5px;
+    filter: drop-shadow(0px 4px rgb(41, 43, 112));
+}
+
+#select-ship {
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    gap: 50px;
+}
+
+#select-ship .ship {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 2px;
+    touch-action: none;
+}
+
+#select-ship .ship div{
+    width: 28.2px;
+    height: 28.2px;
+    background-color: rgb(255, 247, 136);
+    border-radius: 5px;
+    filter: drop-shadow(0px 4px rgb(112, 106, 41));
+    cursor: pointer;
+}
+
+.hold-ship {
+    scale: 0.8;
 }
