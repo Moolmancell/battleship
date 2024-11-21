@@ -13,6 +13,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
         title: 'Battleship',
+        template: './src/index.html', // Use src/index.html as the template
         }),
     ],
     module: {
