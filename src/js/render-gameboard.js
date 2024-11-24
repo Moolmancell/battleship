@@ -1,4 +1,4 @@
-export function renderGameboard() {
+export function renderGameboard(containerId) {
     const container = document.getElementById(containerId);
     if (!container) {
         console.error("Container not found!");
@@ -9,7 +9,7 @@ export function renderGameboard() {
     container.style.display = "grid";
     container.style.gridTemplateColumns = "repeat(10, 1fr)";
     container.style.gridTemplateRows = "repeat(10, 1fr)";
-    container.style.gap = "5px"; // Optional: space between cells
+    container.style.gap = "2px"; // Optional: space between cells
 
     // Generate grid cells with coordinates
     for (let y = 0; y < 10; y++) {
@@ -20,11 +20,13 @@ export function renderGameboard() {
             cell.setAttribute("data-x", x);
             cell.setAttribute("data-y", y);
 
+            //sunken, hit, none, placed
+            cell.setAttribute("data-ship", "none")
+
             // Add content to cell (optional)
-            cell.textContent = `(${x}, ${y})`;
+            //cell.textContent = `(${x}, ${y})`;
 
             // Style the cell
-            cell.style.border = "1px solid #ccc";
             cell.style.display = "flex";
             cell.style.alignItems = "center";
             cell.style.justifyContent = "center";
