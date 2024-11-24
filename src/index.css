@@ -41,6 +41,7 @@ body {
     flex-direction: row;
     gap: 2px;
     touch-action: none;
+    transition: opacity 500ms;
 }
 
 #select-ship .ship div{
@@ -52,6 +53,6 @@ body {
     cursor: pointer;
 }
 
-.hold-ship {
-    scale: 0.8;
+.lower-opacity {
+    opacity: 0.5;
 }
