@@ -18,6 +18,15 @@ function getGridCellFromPoint(x, y) {
     });
 }
 
+function checkRotation(rotation , rect) {
+    const halfCellLength = document.querySelector(".ship div").getBoundingClientRect().width / 2;
+    if (rotation === "vertical") {
+        return { x: (rect.left + rect.right) / 2, y: rect.top + halfCellLength};
+    } else if (rotation === "horizontal"){
+        return { x: rect.left + halfCellLength, y: (rect.top + rect.bottom) / 2 };
+    }
+}
+
 ships.forEach(ship => {
     const position = { x: 0, y: 0 }
 
@@ -50,8 +59,7 @@ ships.forEach(ship => {
                 );
 
                 if (isColliding) {
-                    const halfCellLength = document.querySelector(".ship div").getBoundingClientRect().width / 2;
-                    const leftPoint = { x: rect.left + halfCellLength, y: (rect.top + rect.bottom) / 2 };
+                    const leftPoint = checkRotation(mode, rect);
                     const cell = getGridCellFromPoint(leftPoint.x, leftPoint.y);
 
                     if (lastHighlightedCell && lastHighlightedCell !== cell) {
